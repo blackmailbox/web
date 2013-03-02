@@ -1,0 +1,2 @@
+dev:
+	node ./start.js

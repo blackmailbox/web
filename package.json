@@ -1,0 +1,21 @@
+{
+    "name": "blackmailbox",
+    "version": "0.0.0-2",
+    "description": "It's like a Mailbox app but with blackmail",
+    "keywords": [],
+    "author": "Ben Reinhart",
+    "dependencies": {
+        "latte": "https://github.com/benjreinhart/latte/tarball/master",
+        "express": ">=3.1.0",
+        "coffee-script": ">=1.4.0"
+    },
+    "devDependencies": {},
+    "main": "index",
+    "subdomain": "blackmailbox",
+    "scripts": {
+        "start": "start.js"
+    },
+    "engines": {
+        "node": "0.8.16"
+    }
+}
