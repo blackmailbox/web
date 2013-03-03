@@ -10,6 +10,7 @@
     "keywords": [],
     "author": "Ben Reinhart",
     "dependencies": {
+        "async": ">=0.2.6",
         "latte": "https://github.com/benjreinhart/latte/tarball/master",
         "bcrypt": ">=0.7.4",
         "express": ">=3.1.0",
