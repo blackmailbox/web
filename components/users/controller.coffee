@@ -1,21 +1,25 @@
-User = require './model'
+User          = require './model'
+{pick}        = require 'underscore'
+UserPresenter = require './presenter'
 
 exports.show = (req, res) ->
   {id} = req.params
 
-  User.find { _id: id }, (err, users) ->
-    if user?
-      res.json { user }
-    else
-      res.json { error: "No user found with id '#{ id }'", status: 404 }
+  User.findOne { _id: id }, (err, user) ->
+    user = (new UserPresenter user).toHash()
+    return res.json { user } if user?
+
+    res.json
+      status: 404
+      error: "No user found with id '#{ id }'"
 
 exports.create = (req, res) ->
   user = new User req.body.user
 
   user.save (err, user) ->
-    console.log user
+    user = whitelist user
+    return res.json { user } unless err?
 
-    if err?
-      res.json { error: 'An error occured while trying to save record', status: 500 }
-    else
-      res.json { user }
+    res.json
+      status: 500
+      error: 'An error occured while trying to save record'

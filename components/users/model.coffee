@@ -1,19 +1,30 @@
+Base      = require "#{ process.env.APP_ROOT }/core/lib/models/base"
+{pick}    = require 'underscore'
 UserStore = require './datastore'
 
 {generateHashedPassword} = require './lib/password'
 
-module.exports = class User
-  @find: (args...) ->
-    UserStore.find(args...)
+module.exports = class User extends Base
+  @findOne: (args...) =>
+    cb = args.pop()
 
-  constructor: (@data={}) ->
+    UserStore.findOne args..., (err, record) =>
+      return cb err if err?
 
-  save: (cb) ->
-    generateHashedPassword @data.password, (err, hashedPassword) =>
-      @data.password = hashedPassword
+      cb null, new User record
 
-      (new UserStore @data).save (err, user) ->
-        console.log user
-        cb err, user
 
-  authenticate: (cb) ->
+  constructor: (@attributes={}) ->
+
+  save: (cb) =>
+    attributes = whitelist @attributes
+
+    generateHashedPassword attributes.password, (err, hashedPassword) =>
+      return cb err if err?
+
+      @attributes.password = attributes.password = hashedPassword
+      (new UserStore attributes).save cb
+
+
+  whitelist = (attributes) ->
+    pick attributes, 'name', 'email', 'password'

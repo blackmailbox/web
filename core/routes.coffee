@@ -10,9 +10,10 @@ app = do require "#{ APP_ROOT }/core/lib/app"
 
 app.get '/', (requireController 'landing').index
 
-Users = requireController 'users'
+Users    = requireController 'users'
+Promises = requireController 'promises'
 
 namespace 'api', ({ get, post }) ->
   get  '/users/:id', Users.show
   post '/users', Users.create
-  post '/promises', (requireController 'promises').create
+  post '/promises', Promises.create
