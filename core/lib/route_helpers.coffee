@@ -1,7 +1,7 @@
 {APP_ROOT} = process.env
 
 Path = require 'path'
-app  = do require "#{ APP_ROOT }/core/lib/instance_cache"
+app  = do require "#{ APP_ROOT }/core/lib/app"
 
 requireController = (component) ->
   require "#{ APP_ROOT }/components/#{ component }/controller"

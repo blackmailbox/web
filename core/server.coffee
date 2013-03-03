@@ -1,6 +1,6 @@
 {APP_ROOT} = process.env
 
-cache        = require "#{ APP_ROOT }/core/lib/instance_cache"
+cache        = require "#{ APP_ROOT }/core/lib/app"
 express      = require 'express'
 initializers = require "#{ APP_ROOT }/core/config/initializers"
 
