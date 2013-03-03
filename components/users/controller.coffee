@@ -17,7 +17,7 @@ exports.create = (req, res) ->
   user = new User req.body.user
 
   user.save (err, user) ->
-    user = whitelist user
+    user = (new UserPresenter user).toHash()
     return res.json { user } unless err?
 
     res.json
