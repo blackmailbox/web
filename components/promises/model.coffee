@@ -17,10 +17,7 @@ module.exports = class Promise extends Base
       @set 'posted', false
 
   save: (cb) =>
-    console.log @attributes
     attributes = whitelist @attributes
-    console.log attributes
-
     (new PromiseStore attributes).save cb
 
   whitelist = (attributes) ->
