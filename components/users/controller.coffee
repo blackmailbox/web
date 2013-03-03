@@ -1,5 +1,4 @@
 User          = require './model'
-{pick}        = require 'underscore'
 UserPresenter = require './presenter'
 
 exports.show = (req, res) ->
