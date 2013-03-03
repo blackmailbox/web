@@ -21,6 +21,13 @@ header{
 	width: 1140px;
 	margin: auto;
 }
+.logo {
+	display:block;
+	width: 511px;
+	height: 95px;
+	margin: 0 auto 50px auto;
+	padding-top: 50px;
+}
 .marquee {
 	background: url("img/marquee.jpg");
 	clear: left;
@@ -43,15 +50,10 @@ header{
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 }
-header img {
-	margin: auto;
-	text-align: center;
-	width: 300px;
-}
 header ul {
 	margin: 25px auto;
 	padding-bottom: 50px;
-	width:600px;
+	width:490px;
 	text-transform: uppercase;
 }
 header ul li {
@@ -91,4 +93,23 @@ article h1 {
 	font-size: 28px;
 	font-weight: normal;
 	padding-bottom: 20px;
+}
+footer	{
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 0 auto 50px auto;
+	padding: 25px 0;
+	width: 1140px;
+}
+footer	p{
+	float: left;
+}
+footer ul li{
+	float: left;
+	margin-left: 20px;
+	padding: 0 10px;
+}
+.footer-nav {
+	float: right;
+	width: 400px;
 }
