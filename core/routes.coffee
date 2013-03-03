@@ -7,6 +7,6 @@ requireController = (component) ->
 module.exports = (app) ->
   app.get '/', (requireController 'landing').index
 
-  app.get '/users', requireController('users').index
+  app.get '/users', (requireController 'users').index
 
-  app.get '/promises', requireController('promises').index
+  app.get '/promises', (requireController 'promises').index
