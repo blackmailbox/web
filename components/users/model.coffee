@@ -8,7 +8,7 @@ module.exports = class User extends Base
   @findOne: (args...) =>
     cb = args.pop()
 
-    UserStore.findOne args..., (err, record) =>
+    UserStore.findOne args..., (err, record) ->
       return cb err if err?
 
       cb null, new User record
