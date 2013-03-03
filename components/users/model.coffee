@@ -5,7 +5,7 @@ UserStore = require './datastore'
 {generateHashedPassword} = require './lib/password'
 
 module.exports = class User extends Base
-  @findOne: (args...) =>
+  @findOne: (args...) ->
     cb = args.pop()
 
     UserStore.findOne args..., (err, record) ->
