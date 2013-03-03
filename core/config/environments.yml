@@ -1,7 +1,0 @@
-development:
-  db:
-    host: mongodb://localhost/blackmailboxapp
-
-production:
-  db:
-    host: mongodb://nodejitsu:6031a2d79bbbf8781e01d4062c9cb55b@linus.mongohq.com:10058/nodejitsudb6022364387
