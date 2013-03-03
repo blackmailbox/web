@@ -4,6 +4,7 @@ module.exports = class User
 
   toHash: =>
     {
+      id    : @user.get '_id'
       name  : @user.get 'name'
       email : @user.get 'email'
     }

@@ -1,4 +1,4 @@
-{ mongoose, db } = require process.env.APP_ROOT + '/core/db'
+{ mongoose, db } = require "#{ process.env.APP_ROOT }/core/db"
 
 UserSchema = new mongoose.Schema
   name: String
