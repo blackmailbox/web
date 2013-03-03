@@ -1,6 +1,11 @@
 {
-    "name": "blackmailbox",
-    "version": "0.0.0-2",
+    "name": "blackmailboxapp.com",
+    "subdomain": "blackmailboxapp",
+    "domains": [
+        "blackmailboxapp.com",
+        "www.blackmailboxapp.com"
+      ],
+    "version": "0.0.0",
     "description": "It's like a Mailbox app but with blackmail",
     "keywords": [],
     "author": "Ben Reinhart",
