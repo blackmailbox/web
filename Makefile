@@ -1,2 +1,2 @@
 dev:
-	node ./start.js
+	NODE_ENV=development node ./start.js
