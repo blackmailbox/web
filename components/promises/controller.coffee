@@ -1,2 +1,2 @@
-exports.index = (req, res) ->
-  res.send 200, "Hello world from /promises!"
+exports.create = (req, res) ->
+  res.send 201

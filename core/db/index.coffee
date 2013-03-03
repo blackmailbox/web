@@ -1,4 +1,6 @@
-config = require './config/environment_config'
+{APP_ROOT} = process.env
+
+config = require "#{ APP_ROOT }/core/config/environment_config"
 
 mongoose = require 'mongoose'
 
