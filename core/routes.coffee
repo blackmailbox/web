@@ -1,12 +1,15 @@
 {APP_ROOT} = process.env
 
-requireController = (component) ->
-  require "#{ APP_ROOT }/components/#{ component }/controller"
+app = do require "#{ APP_ROOT }/core/lib/instance_cache"
 
+{requireController, namespace} = require "#{ APP_ROOT }/core/lib/route_helpers"
 
-module.exports = (app) ->
-  app.get '/', (requireController 'landing').index
+##########
+# ROUTES #
+##########
 
-  app.get '/users', (requireController 'users').index
+app.get '/', (requireController 'landing').index
 
-  app.get '/promises', (requireController 'promises').index
+namespace 'api', ({ get }) ->
+  get '/users', (requireController 'users').index
+  get '/promises', (requireController 'promises').index
