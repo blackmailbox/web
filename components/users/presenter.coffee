@@ -10,4 +10,5 @@ module.exports = class User
       last_name   : @user.get 'last_name'
       username    : @user.get 'username'
       accessToken : @user.get 'accessToken'
+      active      : @user.get 'active'
     }

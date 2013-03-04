@@ -9,6 +9,7 @@ WHITELISTED_ATTRIBUTES = [
   'last_name'
   'username'
   'accessToken'
+  'active'
 ]
 
 module.exports = class User extends Base
@@ -20,6 +21,15 @@ module.exports = class User extends Base
 
       cb null, (if record? then new User record else null)
 
+  @findOrCreateBy: (userAttributes, cb) ->
+    return cb (new Error 'Must include id') unless userAttributes.id?
+
+    User.findOne userAttributes.id, (err, user) ->
+      return cb err if err?
+      return cb null, user if user?
+
+      (new User userAttributes).save cb
+
   constructor: (@attributes={}) ->
 
   save: (cb) =>
@@ -27,3 +37,5 @@ module.exports = class User extends Base
 
   whitelist = (attributes) ->
     pick attributes, WHITELISTED_ATTRIBUTES...
+
+

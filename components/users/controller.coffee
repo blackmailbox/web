@@ -16,22 +16,15 @@ exports.create = (req, res) ->
   unless userParams.id? and userParams.accessToken?
     return res.json 400, { error: 'Must provide facebook access token and facebook id' }
 
-  User.findOne { facebookId: userParams.facebookId }, (err, user) ->
+  User.findOrCreateBy userParams, (err, user) ->
     return res.json 500, { error: 'An error occurred' } if err?
-    return respondWithUser user, 200, res if user?
 
-    persistUser userParams, res
+    respondWithUser user, 200, res
 
 
 ###########
 # PRIVATE #
 ###########
-
-persistUser = (attributes, res) ->
-  (new User attributes).save (err, user) ->
-    return res.json 500, { error: 'An error occurred while trying to save record' } if err?
-
-    respondWithUser user, 201, res
 
 respondWithUser = (user, status, res) ->
   user = (new UserPresenter user).toHash()
