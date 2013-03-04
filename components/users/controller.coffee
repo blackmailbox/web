@@ -4,7 +4,7 @@ UserPresenter = require './presenter'
 exports.show = (req, res) ->
   {id} = req.params
 
-  User.findOne { facebookId: id }, (err, user) ->
+  User.findOne { id }, (err, user) ->
     return res.json 500, { error: 'An error occurred while looking up user' } if err?
     return res.json 404, { error: "No user found with id '#{ id }'" } unless user?
 
