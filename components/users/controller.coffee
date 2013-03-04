@@ -8,7 +8,7 @@ exports.show = (req, res) ->
     return res.json 500, { error: 'An error occurred while looking up user' } if err?
     return res.json 404, { error: "No user found with id '#{ id }'" } unless user?
 
-    respondWithUser user, 200, res
+    renderUser user, 200, res
 
 exports.create = (req, res) ->
   userParams = req.body.user
@@ -19,13 +19,13 @@ exports.create = (req, res) ->
   User.findOrCreateBy userParams, (err, user) ->
     return res.json 500, { error: 'An error occurred' } if err?
 
-    respondWithUser user, 200, res
+    renderUser user, 200, res
 
 
 ###########
 # PRIVATE #
 ###########
 
-respondWithUser = (user, status, res) ->
+renderUser = (user, status, res) ->
   user = (new UserPresenter user).toHash()
   res.json status, { user }
