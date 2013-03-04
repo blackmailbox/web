@@ -172,7 +172,8 @@ footer ul li {
 	font-weight: normal;
 }
 .container-row p {
-	max-width: 100%;
+	max-width: 1140px;
+	display: block;
 }
 .text-input {
 	width: 411px;
