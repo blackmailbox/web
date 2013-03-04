@@ -10,20 +10,24 @@ body {
 h1 {
 	color: #000000;
 }
+h2 {color: #000000;
+	text-align: left;
+}
 p {
 	line-height: 130%;
+	padding: 0px 0px 20px 0px;
 }
 a {
 	color: #a0a0a0;
 	text-decoration: none;
 }
-a:hover{
+a:hover {
 	color: #5a5a5a;
 }
-ul{
+ul {
 	list-style: none;
 }
-header{
+header {
 	width: 1140px;
 	margin: auto;
 }
@@ -88,7 +92,7 @@ input:hover, input.focus {
 header ul {
 	margin: 25px auto;
 	padding-bottom: 50px;
-	width:490px;
+	width:400px;
 	text-transform: uppercase;
 }
 header ul li {
@@ -133,31 +137,30 @@ footer	{
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	margin: 0 auto 50px auto;
-	padding: 25px 0 10px 0;
-
+	padding: 10px 0 0px 0;
 	width: 1140px;
 }
-footer	p{
+footer	p {
 	float: left;
 }
-footer ul li{
+footer ul li {
 	float: left;
 	margin-left: 20px;
 	padding: 0 10px;
 }
 .footer-nav {
 	float: right;
-	width: 400px;
+	width: 300px;
 }
 .attribution {
 	clear: left;
 	float: none;
 	font-size:11px;
-	padding:10px 0;
+	padding:0px 0px;
 }
 .container {
 	width: 1140px;
-	padding: 12px 0px 30px 0px;
+	padding: 12px 0px 12px 0px;
 }
 .container-row {
 	width: 1140px;
@@ -176,37 +179,49 @@ footer ul li{
 	color: #000000;
 }
 .text-input-button {
+	background: black;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	margin-left: 0px;
+	padding: 20px 30px 20px 20px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+#reservations-button {
+	font-size: 14px;
+	padding: 12px 12px;
+	margin-left: 30px;
 	width: 120px;
-	padding: 9px;
-	margin: 0px 0px 0px 20px;
-	background: #000000;
-	color: #FFFFFF;
-	height: 38px;
-	cursor: pointer;
 }
-#reserve a{
-		background: black;
-		text-align: center;
-		color: white;
-		font-size: 30px;
-		margin-left: 80px;
-		padding: 20px 30px;
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		border-radius: 10px;
-		display: block;
-		width: 34%;
-}
-#reserve p{
-	font-size: 210%;
-	padding: 200px 0 40px 80px;
+#reserve {
+	background: black;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	margin-left: 0px;
+	padding: 0px 30px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	display: block;
+	padding: 20px 0px 20px 20px;
 }
 #reservations-headline, #reservations-body {
 	width: 600px;
 	margin: 0px auto 20px auto;
 }
-
 #reservations-form {
 	width: 600px;
-	margin: 40px auto 40px auto;
+	margin: 20px auto 200px auto;
+}
+#jobs-headline, #jobs-body {
+	width: 700px;
+	margin: 0px auto 20px auto;
+}
+.jobs-list {
+	text-align: left;
+	border-top: 1px solid #ccc;
+	padding: 20px 0px 0px 0px;
 }
