@@ -12,3 +12,16 @@ curl -d '{
 
 echo
 echo
+
+echo "Creating Promise... Response:"
+echo
+
+curl -d '{
+  "promise": {
+    "expiresAt": "Sun Mar 03 2013 13:30:04 GMT-0800 (PST)",
+    "description": "Blackmail walker"
+  }
+}' -H 'content-type:application/json' "http://localhost:3000/api/users/124267827/promises"
+
+echo
+echo

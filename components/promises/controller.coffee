@@ -1,5 +1,5 @@
 Promise           = require './model'
-{extend}          = require 'underscore'
+{extend, isEmpty} = require 'underscore'
 PromisesPresenter = require './presenter'
 
 exports.show = (req, res) ->
@@ -17,6 +17,17 @@ exports.create = (req, res) ->
   promise.save (err, promise) ->
     return res.json 500, { error: 'An error occurred' } if err?
     renderPromise promise, 201, res
+
+
+exports.userPromises = (req, res) ->
+  {id} = req.params
+
+  Promise.findAllByUserId id, (err, promises) ->
+    return res.json 500, { error: 'An error occurred while looking up promises for user' } if err?
+    return res.json 200, { promises: [] } if isEmpty promises
+
+    promises = ((new PromisesPresenter promise).toHash() for promise in promises)
+    res.json 200, { promises }
 
 
 ###########
