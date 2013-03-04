@@ -38,8 +38,8 @@ input {
 	outline: 0;
 	font: normal 13px/100% Verdana, Tahoma, sans-serif;
 	background: #FFFFFF;
-	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
-	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 }
 input:hover, input.focus {
@@ -65,7 +65,7 @@ input:hover, input.focus {
 	padding-top: 50px;
 }
 .marquee {
-	background: url("img/marquee.jpg");
+	background: url("../img/marquee.jpg");
 	clear: left;
 	color: white;
 	height: 640px;
