@@ -12,6 +12,7 @@ exports.show = (req, res) ->
     renderPromise promise, 200, res
 
 exports.create = (req, res) ->
+  req.body.promise ?= {}
   promise = new Promise (extend req.body.promise, { userId: req.params.id })
 
   promise.save (err, promise) ->
