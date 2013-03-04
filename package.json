@@ -5,11 +5,12 @@
         "blackmailboxapp.com",
         "www.blackmailboxapp.com"
     ],
-    "version": "0.0.0-6",
+    "version": "0.0.0-7",
     "description": "It's like a Mailbox app but with blackmail",
     "keywords": [],
     "author": "Ben Reinhart",
     "dependencies": {
+        "qs": ">=0.5.3",
         "async": ">=0.2.6",
         "latte": "https://github.com/benjreinhart/latte/tarball/master",
         "express": ">=3.1.0",

@@ -11,6 +11,13 @@ module.exports = class Promise extends Base
 
       cb null, new Promise record, { isExistingRecord: true }
 
+  @findAllByUserId: (id, cb) ->
+    PromiseStore.where('userId', id).exec (err, records) ->
+      return cb err if err?
+      promises = ((new Promise record, { isExistingRecord: true }) for record in records)
+
+      cb null, promises ? []
+
   constructor: (@attributes={}, { isExistingRecord }={}) ->
     unless isExistingRecord
       @set 'status', 'incomplete'
