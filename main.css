@@ -7,6 +7,12 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 16px;
 }
+h1 {
+	color: #000000;
+}
+p {
+	line-height: 130%;
+}
 a {
 	color: #a0a0a0;
 	text-decoration: none;
@@ -20,6 +26,32 @@ ul{
 header{
 	width: 1140px;
 	margin: auto;
+}
+input {
+	margin: auto;
+	padding: 9px;
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	background: #FFFFFF;
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+input:hover, input.focus {
+	border-color: #C9C9C9;
+}
+.form label {
+	margin-left: 10px;
+	color: #999999;
+}
+.submit input {
+	width: auto;
+	padding: 9px 15px;
+	background: #000000;
+	border: 0;
+	font-size: 17px;
+	color: #000000;
 }
 .logo {
 	display:block;
@@ -37,18 +69,21 @@ header{
 	width: 1140px;
 }
 .marquee p{
-	font-size: 30px;
-	padding:200px 0 40px 120px;
+	font-size: 210%;
+	padding: 200px 0 40px 80px;
 }
 .marquee a{
 	background: black;
+	text-align: center;
 	color: white;
 	font-size: 30px;
-	margin-left: 200px;
+	margin-left: 80px;
 	padding: 20px 30px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
+	display: block;
+	width: 34%;
 }
 header ul {
 	margin: 25px auto;
@@ -61,14 +96,14 @@ header ul li {
 	padding: 0 20px;
 }
 section	{
-	background: #cccccc; /* Old browsers */
-	background: -moz-linear-gradient(top,  #cccccc 0%, #ffffff 15%, #ffffff 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(15%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #cccccc 0%,#ffffff 15%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #cccccc 0%,#ffffff 15%,#ffffff 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #cccccc 0%,#ffffff 15%,#ffffff 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #cccccc 0%,#ffffff 15%,#ffffff 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eeeeee 0%, #ffffff 10%, #ffffff 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(10%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eeeeee 0%,#ffffff 10%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eeeeee 0%,#ffffff 10%,#ffffff 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eeeeee 0%,#ffffff 10%,#ffffff 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #eeeeee 0%,#ffffff 10%,#ffffff 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 	clear: both;
 	min-height: 400px;
 	padding: 75px 0;
@@ -98,7 +133,7 @@ footer	{
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	margin: 0 auto 50px auto;
-	padding: 25px 0;
+	padding: 0px 0px;
 	width: 1140px;
 }
 footer	p{
@@ -113,3 +148,60 @@ footer ul li{
 	float: right;
 	width: 400px;
 }
+.container {
+	width: 1140px;
+	padding: 12px 0px 30px 0px;
+}
+.container-row {
+	width: 1140px;
+	text-align: center;
+	margin: auto;
+}
+.container-row h1 {
+	font-size: 28px;
+	font-weight: normal;
+}
+.container-row p {
+	max-width: 100%;
+}
+.text-input {
+	width: 411px;
+	color: #000000;
+}
+.text-input-button {
+	width: 120px;
+	padding: 9px;
+	margin: 0px 0px 0px 20px;
+	background: #000000;
+	color: #FFFFFF;
+	height: 38px;
+	cursor: pointer;
+}
+#reserve a{
+		background: black;
+		text-align: center;
+		color: white;
+		font-size: 30px;
+		margin-left: 80px;
+		padding: 20px 30px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		display: block;
+		width: 34%;
+}
+#reserve p{
+	font-size: 210%;
+	padding: 200px 0 40px 80px;
+}
+#reservations-headline, #reservations-body {
+	width: 600px;
+	margin: 0px auto 20px auto;
+}
+
+#reservations-form {
+	width: 600px;
+	margin: 40px auto 40px auto;
+}
+
+
