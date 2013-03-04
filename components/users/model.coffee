@@ -9,7 +9,7 @@ module.exports = class User extends Base
     UserStore.findOne args..., (err, record) ->
       return cb err if err?
 
-      cb null, new User record
+      cb null, (if record? then new User record else null)
 
   constructor: (@attributes={}) ->
 

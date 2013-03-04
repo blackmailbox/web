@@ -5,20 +5,17 @@ exports.show = (req, res) ->
   {id} = req.params
 
   User.findOne { _id: id }, (err, user) ->
-    user = (new UserPresenter user).toHash()
-    return res.json { user } if user?
+    return res.json 500, { error: 'An error occurred while looking up user' } if err?
+    return res.json 404, { error: "No user found with id '#{ id }'" } unless user?
 
-    res.json
-      status: 404
-      error: "No user found with id '#{ id }'"
+    user = (new UserPresenter user).toHash()
+    res.json { user }
 
 exports.create = (req, res) ->
   user = new User req.body.user
 
   user.save (err, user) ->
-    user = (new UserPresenter user).toHash()
-    return res.json { user } unless err?
+    return res.json 500, { error: 'An error occurred while trying to save record' } if err?
 
-    res.json
-      status: 500
-      error: 'An error occured while trying to save record'
+    user = (new UserPresenter user).toHash()
+    return res.json 201, { user } unless err?
