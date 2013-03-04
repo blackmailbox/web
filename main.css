@@ -98,7 +98,7 @@ footer	{
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	margin: 0 auto 50px auto;
-	padding: 25px 0;
+	padding: 25px 0 10px 0;
 	width: 1140px;
 }
 footer	p{
@@ -112,4 +112,10 @@ footer ul li{
 .footer-nav {
 	float: right;
 	width: 400px;
+}
+.attribution {
+	clear: left;
+	float: none;
+	font-size:11px;
+	padding:10px 0;
 }
