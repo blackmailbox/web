@@ -6,14 +6,11 @@ app = do require "#{ APP_ROOT }/core/lib/app"
 
 Users    = requireController 'users'
 Oauth    = requireController 'oauth'
-Landing  = requireController 'landing'
 Promises = requireController 'promises'
 
 ##########
 # ROUTES #
 ##########
-
-app.get '/', Landing.index
 
 namespace 'api', ({ get, post }) ->
   get '/users/:id', Users.show
