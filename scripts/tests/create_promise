@@ -5,11 +5,10 @@ echo
 
 curl -d '{
   "promise": {
-    "userId": "5133c162a56b47492b000001",
     "expiresAt": "Sun Mar 03 2013 13:30:04 GMT-0800 (PST)",
     "description": "Pay Brett money for apartment"
   }
-}' -H 'content-type:application/json' "http://localhost:3000/api/promises"
+}' -H 'content-type:application/json' "http://localhost:3000/api/users/124267827/promises"
 
 echo
 echo

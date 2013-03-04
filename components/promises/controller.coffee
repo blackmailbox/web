@@ -1,24 +1,28 @@
 Promise           = require './model'
+{extend}          = require 'underscore'
 PromisesPresenter = require './presenter'
 
 exports.show = (req, res) ->
   {id} = req.params
 
   Promise.findOne { _id: id }, (err, promise) ->
-    promise = (new PromisesPresenter promise).toHash()
-    return res.json { promise } if promise?
+    return res.json 500, { error: 'An error occurred while looking up promise' } if err?
+    return res.json 404, { error: "No promise found with id '#{ id }'" } unless promise?
 
-    res.json
-      status: 404
-      error: "No promise found with id '#{ id }'"
+    renderPromise promise, 200, res
 
 exports.create = (req, res) ->
-  promise = new Promise req.body.promise
+  promise = new Promise (extend req.body.promise, { userId: req.params.id })
 
   promise.save (err, promise) ->
-    promise = (new PromisesPresenter promise).toHash()
-    return res.json { promise } unless err?
+    return res.json 500, { error: 'An error occurred' } if err?
+    renderPromise promise, 200, res
 
-    res.json
-      status: 500
-      error: 'An error occured while trying to save record'
+
+###########
+# PRIVATE #
+###########
+
+renderPromise = (promise, status, res) ->
+  promise = (new PromisesPresenter promise).toHash()
+  res.json status, { promise }
