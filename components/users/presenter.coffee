@@ -4,7 +4,11 @@ module.exports = class User
 
   toHash: =>
     {
-      id          : @user.get '_id'
-      uuid        : @user.get 'uuid'
+      id          : @user.get 'id'
+      name        : @user.get 'name'
+      first_name  : @user.get 'first_name'
+      last_name   : @user.get 'last_name'
+      username    : @user.get 'username'
       accessToken : @user.get 'accessToken'
+      active      : @user.get 'active'
     }

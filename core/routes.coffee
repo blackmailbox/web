@@ -15,7 +15,8 @@ Promises = requireController 'promises'
 
 namespace 'api', ({ get, post }) ->
   get  '/users/:id', Users.show
-  post '/users', Users.create
-
   get  '/promises/:id', Promises.show
-  post '/promises', Promises.create
+
+  post '/users', Users.create
+  post '/users/:id/promises', Promises.create
+

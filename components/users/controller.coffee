@@ -4,21 +4,28 @@ UserPresenter = require './presenter'
 exports.show = (req, res) ->
   {id} = req.params
 
-  User.findOne { _id: id }, (err, user) ->
-    user = (new UserPresenter user).toHash()
-    return res.json { user } if user?
+  User.findOne { id }, (err, user) ->
+    return res.json 500, { error: 'An error occurred while looking up user' } if err?
+    return res.json 404, { error: "No user found with id '#{ id }'" } unless user?
 
-    res.json
-      status: 404
-      error: "No user found with id '#{ id }'"
+    renderUser user, 200, res
 
 exports.create = (req, res) ->
-  user = new User req.body.user
+  userParams = req.body.user
 
-  user.save (err, user) ->
-    user = (new UserPresenter user).toHash()
-    return res.json { user } unless err?
+  unless userParams.id? and userParams.accessToken?
+    return res.json 400, { error: 'Must provide facebook access token and facebook id' }
 
-    res.json
-      status: 500
-      error: 'An error occured while trying to save record'
+  User.findOrCreateBy userParams, (err, user) ->
+    return res.json 500, { error: 'An error occurred' } if err?
+
+    renderUser user, 200, res
+
+
+###########
+# PRIVATE #
+###########
+
+renderUser = (user, status, res) ->
+  user = (new UserPresenter user).toHash()
+  res.json status, { user }
