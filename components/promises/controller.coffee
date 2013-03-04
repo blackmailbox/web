@@ -16,7 +16,7 @@ exports.create = (req, res) ->
 
   promise.save (err, promise) ->
     return res.json 500, { error: 'An error occurred' } if err?
-    renderPromise promise, 200, res
+    renderPromise promise, 201, res
 
 
 ###########
