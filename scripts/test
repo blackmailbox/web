@@ -5,9 +5,8 @@ echo
 
 curl -d '{
   "user": {
-    "name": "John Doe",
-    "password": "password",
-    "email": "john@doe.com"
+    "uuid": "12093u198hf13hf39g23hfghidudhs89h1",
+    "accessToken": "12nei3b23ygf7gwef79g2fbfdhsg"
   }
 }' -H 'content-type:application/json' "http://localhost:3000/api/users"
 
