@@ -14,7 +14,7 @@ exports.authenticate = (_, res) ->
 exports.authorize = (req, res) ->
   {code} = req.query
 
-  request (buildTokenRequest code), (err, response, body) ->
+  request buildTokenRequest(code), (err, response, body) ->
     theReq = { response, body }
 
     res.send response, body
@@ -47,6 +47,9 @@ buildTokenRequest = (authCode) ->
   url: config.oauth.token_url
   form: buildTokenParams authCode
   method: 'POST'
+  headers: {
+    'content-type': 'application/x-www-form-urlencoded'
+  }
 
 buildTokenParams = (authCode) ->
   code          : authCode
