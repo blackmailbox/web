@@ -14,7 +14,7 @@ exports.authenticate = (_, res) ->
 exports.authorize = (req, res) ->
   {code} = req.query
 
-  request buildTokenRequest(code), buildTokenRequest(err, response, body) ->
+  request buildTokenRequest(code), (err, response, body) ->
     theReq = { response, body }
 
     res.send response, body
