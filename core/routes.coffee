@@ -24,4 +24,3 @@ namespace 'oauth', ({ get }) ->
   get '/authenticate', Oauth.authenticate
   get '/authorize', Oauth.authorize
   get '/persist_tokens', Oauth.persistTokens
-  get '/get_session', Oauth.getSession

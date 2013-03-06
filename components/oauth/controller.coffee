@@ -1,12 +1,9 @@
-qs           = require 'qs'
-config       = require "#{ process.env.APP_ROOT }/core/config/environment_config"
-request      = require 'request'
-OauthSession = require './datastore'
+qs             = require 'qs'
+config         = require "#{ process.env.APP_ROOT }/core/config/environment_config"
+OauthSession   = require './datastore'
+{tokenRequest} = require './lib/oauth_requests'
 
 googleApiConfig = config.google_apis
-
-theReq = null
-theRec = null
 
 exports.authenticate = (_, res) ->
   res.redirect buildOauthUrl()
@@ -14,18 +11,13 @@ exports.authenticate = (_, res) ->
 exports.authorize = (req, res) ->
   {code} = req.query
 
-  request buildTokenRequest(code), (err, response, body) ->
-    theReq = { response, body }
-
-    res.send response, body
+  tokenRequest code, (response) ->
+    res.json 200, { response }
 
 exports.persistTokens = (req, res) ->
   (new OauthSession req.body).save (err, record) ->
     theRec = record
     res.send 200
-
-exports.getSession = (_, res) ->
-  res.json { theReq, theRec }
 
 
 ###########
@@ -42,18 +34,3 @@ buildQueryParams = ->
     access_type   : googleApiConfig.access_type
     redirect_uri  : googleApiConfig.redirect_uri
     response_type : googleApiConfig.response_type
-
-buildTokenRequest = (authCode) ->
-  url: config.oauth.token_url
-  form: buildTokenParams authCode
-  method: 'POST'
-  headers: {
-    'content-type': 'application/x-www-form-urlencoded'
-  }
-
-buildTokenParams = (authCode) ->
-  code          : authCode
-  client_id     : googleApiConfig.client_id
-  grant_type    : googleApiConfig.grant_type
-  redirect_uri  : 'http://blackmailboxapp.com/oauth/persist_tokens'
-  client_secret : googleApiConfig.client_secret
