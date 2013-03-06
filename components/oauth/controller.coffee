@@ -1,5 +1,5 @@
 qs             = require 'qs'
-config         = require "#{ process.env.APP_ROOT }/core/config/environment_config"
+config         = require "#{ process.env.APP_ROOT }/core/config"
 OauthSession   = require './datastore'
 {tokenRequest} = require './lib/oauth_requests'
 

@@ -2,7 +2,6 @@
 
 cache        = require "#{ APP_ROOT }/core/lib/app"
 express      = require 'express'
-initializers = require "#{ APP_ROOT }/core/config/initializers"
 
 app = express()
 cache.set(app)
@@ -23,7 +22,5 @@ app.configure "development", ->
   app.use express.errorHandler()
 
 require './routes'
-
-initializers.run()
 
 app.listen(app.get('port'))

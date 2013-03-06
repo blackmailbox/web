@@ -1,4 +1,4 @@
-config   = require "#{ process.env.APP_ROOT }/core/config/environment_config"
+config   = require "#{ process.env.APP_ROOT }/core/config"
 mongoose = require 'mongoose'
 
 db = mongoose.createConnection config.db.host

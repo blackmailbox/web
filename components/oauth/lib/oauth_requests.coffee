@@ -1,6 +1,6 @@
 qs              = require 'qs'
 https           = require 'https'
-config          = require "#{ process.env.APP_ROOT }/core/config/environment_config"
+config          = require "#{ process.env.APP_ROOT }/core/config"
 googleApiConfig = config.google_apis
 
 exports.tokenRequest = (code, cb) ->
