@@ -1,7 +1,5 @@
 {APP_ROOT} = process.env
 
-app = do require "#{ APP_ROOT }/core/lib/app"
-
 {requireController, namespace} = require "#{ APP_ROOT }/core/lib/route_helpers"
 
 Users    = requireController 'users'
