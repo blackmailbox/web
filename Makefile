@@ -9,3 +9,6 @@ prod:
 
 seed:
 	NODE_ENV=development APP_ROOT=$(CWD) $(COFFEE) $(CWD)/core/db/seeds
+
+prod-clear:
+	NODE_ENV=production APP_ROOT=$(CWD) $(COFFEE) $(CWD)/core/db/seeds
