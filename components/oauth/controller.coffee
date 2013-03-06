@@ -16,7 +16,6 @@ exports.authorize = (req, res) ->
 
 exports.persistTokens = (req, res) ->
   (new OauthSession req.body).save (err, record) ->
-    theRec = record
     res.send 200
 
 
