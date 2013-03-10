@@ -3,7 +3,7 @@
 {requireController, namespace} = require "#{ APP_ROOT }/core/lib/route_helpers"
 
 Users    = requireController 'users'
-Oauth    = requireController 'oauth'
+OAuth    = requireController 'oauth'
 Promises = requireController 'promises'
 
 ##########
@@ -19,6 +19,5 @@ namespace 'api', ({ get, post }) ->
   post '/users/:id/promises', Promises.create
 
 namespace 'oauth', ({ get }) ->
-  get '/authenticate', Oauth.authenticate
-  get '/authorize', Oauth.authorize
-  get '/persist_tokens', Oauth.persistTokens
+  get '/authenticate', OAuth.authenticate
+  get '/authorize', OAuth.authorize

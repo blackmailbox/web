@@ -1,8 +1,9 @@
 { mongoose, db } = require "#{ process.env.APP_ROOT }/core/db"
 
-OauthSessionSchema = new mongoose.Schema
+OAuthSessionSchema = new mongoose.Schema
+  token_type: String
   access_token: String
   refresh_token: String
   expires_in: Number
 
-module.exports = db.model('OauthSession', OauthSessionSchema)
+module.exports = db.model('OAuthSession', OAuthSessionSchema)

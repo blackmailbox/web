@@ -1,35 +1,17 @@
-qs             = require 'qs'
-config         = require "#{ process.env.APP_ROOT }/core/config"
-OauthSession   = require './datastore'
-{tokenRequest} = require './lib/oauth_requests'
-
-googleApiConfig = config.google_apis
+OAuthSession = require './datastore'
+{getTokens, googleOAuthUrl} = require './lib/google_oauth'
 
 exports.authenticate = (_, res) ->
-  res.redirect buildOauthUrl()
+  res.redirect googleOAuthUrl
 
 exports.authorize = (req, res) ->
   {code} = req.query
 
-  tokenRequest code, (response) ->
-    res.json 200, { response }
+  getTokens code, (err, response) ->
+    return res.json 500, { err } if err?
+    return res.json 500, { response } if response.error?
 
-exports.persistTokens = (req, res) ->
-  (new OauthSession req.body).save (err, record) ->
-    res.send 200
+    (new OAuthSession response).save (err) ->
+      return res.json 500, { err, message: 'Error persisting session' } if err?
 
-
-###########
-# PRIVATE #
-###########
-
-buildOauthUrl = ->
-  "#{ config.oauth.url }?#{ buildQueryParams() }"
-
-buildQueryParams = ->
-  qs.stringify
-    scope         : googleApiConfig.scope
-    client_id     : googleApiConfig.client_id
-    access_type   : googleApiConfig.access_type
-    redirect_uri  : googleApiConfig.redirect_uri
-    response_type : googleApiConfig.response_type
+      res.json 200, { message: 'Successfully authenticated' }

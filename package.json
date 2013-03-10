@@ -17,6 +17,7 @@
         "request": ">=2.14.0",
         "mongoose": ">=3.5.7",
         "underscore": ">=1.4.4",
+        "googleapis": ">=0.2.1-alpha",
         "coffee-script": ">=1.4.0"
     },
     "devDependencies": {},
