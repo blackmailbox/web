@@ -4,6 +4,7 @@
 
 Users    = requireController 'users'
 OAuth    = requireController 'oauth'
+Videos   = requireController 'videos'
 Promises = requireController 'promises'
 
 ##########
@@ -21,3 +22,6 @@ namespace 'api', ({ get, post }) ->
 namespace 'oauth', ({ get }) ->
   get '/authenticate', OAuth.authenticate
   get '/authorize', OAuth.authorize
+
+namespace 'videos', ({ get }) ->
+  get '/:id', Videos.show
